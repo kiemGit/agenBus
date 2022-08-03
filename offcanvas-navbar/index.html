@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Offcanvas navbar template · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/offcanvas-navbar/">
+    <link rel="stylesheet" href="css/all.css">
+    
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="bootstrap.min.css" rel="stylesheet">-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .myContainer{
+        height: 300px;
+      }
+    </style>
+    <style type="text/css">
+        .ui-autocomplete {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 1000;
+          float: left;
+          display: none;
+          min-width: 200px !important;
+          padding: 0px 10px;
+          margin: 0 0 10px 25px;
+          list-style: none;
+          /*background-color: #f5f8f9;*/
+          font-family: 'Ubuntu', sans-serif;
+          text-transform: initial !important;
+          font-size: 13px;
+        }
+
+        .ui-menu-item {
+          border-bottom: 1px solid #b4c4d4 !important;
+          padding-bottom: 10px !important;
+          padding-top: 10px !important;
+        }
+
+        .ui-menu-item > a.ui-corner-all {
+          display: block;
+          clear: both;
+          font-weight: normal;
+          /*line-height: 25px;*/
+          color: #0a0a0a;
+          white-space: nowrap;
+          text-decoration: none;
+          text-transform: lowercase !important;
+        }
+
+        .ui-menu-item > a.ui-corner-all:first-letter {
+          text-transform: uppercase;
+        }
+
+        .ui-state-hover,
+        .ui-state-active {
+          color: #ffffff;
+          text-decoration: none;
+          background-color: #0088cc;
+          padding-left: 0px !important;
+          padding-right: 0px !important;
+          border-radius: 0px;
+          -webkit-border-radius: 0px;
+          -moz-border-radius: 0px;
+          background-image: none;
+        }
+
+        .ui-state-highlight a {
+          font-weight: bold;
+          color: #002e5b !important;
+        }
+
+        .ui-state-highlight {
+          font-weight: bold;
+          color: #002e5b !important;
+        }
+
+    </style>
+    <style type="text/css">
+        input {
+          outline: 0;
+          border-width: 0 0 2px;
+          border-color: grey
+          
+        }
+        input:focus {
+          border-color: grey
+
+        }
+    </style>
+    <style type="text/css">
+  /*Don't forget to add Font Awesome CSS : "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"*/
+input[type="text"] {
+  width: 100%;
+  /*border: 2px solid #aaa;*/
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon i {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  padding: 9px 8px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.inputWithIcon input[type="text"]:focus + i {
+  color: dodgerBlue;
+}
+
+.inputWithIcon.inputIconBg i {
+  background-color: #aaa;
+  color: #fff;
+  padding: 9px 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.inputWithIcon.inputIconBg input[type="text"]:focus + i {
+  color: #fff;
+  background-color: dodgerBlue;
+}
+
+</style>
+
+<style type="text/css">
+        input {
+          outline: 0;
+          border-width: 0 0 2px;
+          border-color: grey
+          
+        }
+        input:focus {
+          border-color: grey
+
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" aria-label="Main navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Agen Bus Purwakarta</a>
+    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Switch account</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown01">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+<main class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+    <img class="me-3" src="../assets/brand/bootstrap-logo-white.svg" alt="" width="48" height="38">
+    <div class="lh-1">
+      <h1 class="h6 mb-0 text-white lh-1">Bootstrap</h1>
+      <small>Since 2011</small>
+    </div>
+  </div>
+
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    
+    <div class="container-fluid border border-1">
+        <!--<div class="row">
+          <div class="col col-md-12 mt-3 inputWithIcon">
+            <i class="fa fa-user fa-lg fa-fw"></i><input type="text" id="autocompleteResult1" onfocus="myFunction1(this)">
+          </div>
+          
+        </div>-->
+        <form action="http://192.168.2.123/agenBus/mobileVer/offcanvas-navbar/qBus.html">
+        <div class="row">
+          <div class="col mt-2">
+            <div class="inputWithIcon">
+              <input type="text" id="autocompleteResult" onfocus="myFunction(this)" placeholder="Masukan Asal">
+              <i class="fa fa-bus fa-lg fa-fw" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            
+            <div class="modal-body ui-front">
+              <input type='text' id='autocomplete' placeholder="Pilih tujuan" style="width: 99%">
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="inputWithIcon">
+              <input type="text" id="autocompleteResult1" onfocus="myFunction1(this)" placeholder="Masukan Tujuan">
+              <i class="fa fa-bus fa-lg fa-fw" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="inputWithIcon">
+              <input type="text" id="autocompleteResult1" placeholder="Masukan Tanggal">
+              <i class="fa fa-calendar fa-lg fa-fw" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="row">
+          <div class="col col-md-12 mt-3 mb-3">
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="submit">Cari</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Suggestions</h6>
+    <div class="d-flex text-muted pt-3">
+      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+      <div class="pb-3 mb-0 small lh-sm border-bottom w-100" style="cursor: pointer;" onclick="window.location='http://google.com';">
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                00.01 - 04:01
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                4h 00m . 8 Kursi
+              </div>
+            </div>
+          </div>
+          <div class="col text-end fw-bold fs-5">
+            Rp 150.000
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                Jackal holidays, shuttle
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Blora - Dipatiukur
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                CREW SUDAH DIVAKSIN
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                CAPTAIN SEAT
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Suggestions</h6>
+    <div class="d-flex text-muted pt-3">
+      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+      <div class="pb-3 mb-0 small lh-sm border-bottom w-100" style="cursor: pointer;" onclick="window.location='http://hafiz.id';">
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                00.01 - 04:01
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                4h 00m . 8 Kursi
+              </div>
+            </div>
+          </div>
+          <div class="col text-end fw-bold fs-5">
+            Rp 150.000
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                Jackal holidays, shuttle
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Blora - Dipatiukur
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                CREW SUDAH DIVAKSIN
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                CAPTAIN SEAT
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+    <script src="bootstrap.bundle.min.js"></script>
+
+      <script src="offcanvas.js"></script>
+  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script type='text/javascript' >
+    $( function() {
+  
+        $( "#autocomplete" ).autocomplete({
+            source: function( request, response ) {
+                
+                $.ajax({
+                    url: "fetchData.php",
+                    type: 'post',
+                    dataType: "json",
+                    data: {
+                        search: request.term
+                    },
+                    success: function( data ) {
+                        response( data );
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $('#autocompleteResult').val(ui.item.label); // display the selected text
+                $('#selectuser_id').val(ui.item.value); // save selected id to input
+                $("#exampleModal").modal('hide');
+                return false;
+            },
+            focus: function(event, ui){
+                $( "#autocomplete" ).val( ui.item.label );
+                $( "#selectuser_id" ).val( ui.item.value );
+                return false;
+            },
+        });
+
+        $( "#autocomplete1" ).autocomplete({
+            source: function( request, response ) {
+                
+                $.ajax({
+                    url: "fetchData.php",
+                    type: 'post',
+                    dataType: "json",
+                    data: {
+                        search: request.term
+                    },
+                    success: function( data ) {
+                        response( data );
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $('#autocompleteResult1').val(ui.item.label); // display the selected text
+                $('#selectuser_id').val(ui.item.value); // save selected id to input
+                $("#exampleModal1").modal('hide');
+                return false;
+            },
+            focus: function(event, ui){
+                $( "#autocomplete1" ).val( ui.item.label );
+                $( "#selectuser_id" ).val( ui.item.value );
+                return false;
+            },
+        });
+
+        // Multiple select
+        $( "#multi_autocomplete" ).autocomplete({
+            source: function( request, response ) {
+                
+                var searchText = extractLast(request.term);
+                $.ajax({
+                    url: "fetchData.php",
+                    type: 'post',
+                    dataType: "json",
+                    data: {
+                        search: searchText
+                    },
+                    success: function( data ) {
+                        response( data );
+                    }
+                });
+            },
+            select: function( event, ui ) {
+                var terms = split( $('#multi_autocomplete').val() );
+                
+                terms.pop();
+                
+                terms.push( ui.item.label );
+                
+                terms.push( "" );
+                $('#multi_autocomplete').val(terms.join( ", " ));
+
+                // Id
+                var terms = split( $('#selectuser_ids').val() );
+                
+                terms.pop();
+                
+                terms.push( ui.item.value );
+                
+                terms.push( "" );
+                $('#selectuser_ids').val(terms.join( ", " ));
+
+                return false;
+            }
+
+           
+        });
+        //$('.ui-autocomplete').css('fontSize', '12px');
+        //$('.ui-autocomplete').css('color', 'green');
+        //$('.ui-autocomplete').css('font-family', 'Verdana');
+    });
+    function myFunction(x) {
+      //x.style.background = "yellow";
+      $("#exampleModal").modal('show');
+    }
+    function myFunction1(x) {
+      //x.style.background = "yellow";
+      $("#exampleModal1").modal('show');
+    }
+        function split( val ) {
+      return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+      return split( term ).pop();
+    }
+
+    </script>
+</html>
